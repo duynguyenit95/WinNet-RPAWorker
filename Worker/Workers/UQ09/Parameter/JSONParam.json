@@ -1,0 +1,16 @@
+{
+	"VN": {
+		"RequestPath": "E:\\UQ09\\P-Share\\98VN\\1.Request",
+		"ResultPath": "E:\\UQ09\\P-Share\\98VN\\2.Results",
+		"DestinationPath": "E:\\UQ09\\UNIQLOGU\\InboundFolder\\UNIQLO",
+		"UQ09": true,
+		"UQ09Production": true
+	},
+	"CN": {
+		"RequestPath": "E:\\UQ09\\P-Share\\98CN\\1.Request",
+		"ResultPath": "E:\\UQ09\\P-Share\\98CN\\2.Results",
+		"DestinationPath": "E:\\UQ09\\UNIQLOGU\\InboundFolder\\UNIQLO",
+		"UQ09": true,
+		"UQ09Production": true
+	}
+}

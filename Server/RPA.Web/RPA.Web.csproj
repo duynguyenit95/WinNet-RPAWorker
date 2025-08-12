@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DevExtreme.AspNet.Core" Version="21.1.6" />
+    <PackageReference Include="DevExtreme.AspNet.Data" Version="2.8.2" />
+    <PackageReference Include="itext7" Version="7.2.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.16" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="MsgReader" Version="4.4.11" />
+    <PackageReference Include="Utility" Version="1.0.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\RPA.Core\RPA.Core.csproj" />
+    <ProjectReference Include="..\..\Tools\Azure.FormRecognizer\Azure.FormRecognizer.csproj" />
+    <ProjectReference Include="..\..\Tools\RPA.Tools\RPA.Tools.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ActionFilter\" />
+    <Folder Include="Context\ORP\" />
+    <Folder Include="Invoice\" />
+    <Folder Include="Services\Invoices\" />
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+</Project>

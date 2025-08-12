@@ -1,0 +1,54 @@
+﻿@{
+    Layout = "";
+}
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Login</title>
+    <link href="~/css/login.min.css" rel="stylesheet" />
+    <link href="~/css/login.css" rel="stylesheet" />
+    <link href="~/css/devextreme/dx.common.css" rel="stylesheet" />
+    <link href="~/css/devextreme/dx.carmine.css" rel="stylesheet" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/devextreme/dx.all.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+</head>
+
+<body>
+    <div class="signin-page">
+        <div class="webname">RPA SYSTEM</div>
+        <div class="content">
+            <div class="bb"></div>
+            <form id="form" method="post" action="/Login">
+                <input type="hidden" name="ReturnUrl" value="" />
+                <input type="hidden" name="host" value="" />
+                <div class="form-group">
+                    <div class="lable">Username</div>
+                    <div class="input-icon">
+                        <script>DevExpress.config({ "serverDecimalSeparator": "." }); DevExpress.aspnet.setTemplateEngine();</script><div id="devextreme0"></div>
+                        <script>jQuery(function ($) { $("#devextreme0").dxTextBox({ "name": "Username", "inputAttr": { "id": "Username" } }); });</script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="lable">Password</div>
+                    <div class="input-icon">
+                        <div id="devextreme1">
+                        </div>
+                        <script>jQuery(function ($) { $("#devextreme1").dxTextBox({ "name": "password", "mode": "Password", "inputAttr": { "id": "Password" } }); });</script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div id="devextreme2"></div>
+                    <script>jQuery(function ($) { $("#devextreme2").dxButton({ "icon":"check","text": "LOGIN", "useSubmitBehavior": true, "type": "default", "elementAttr": { "class": "btn-style" } }); });</script>
+                   
+                </div>
+                <h3 class="text_login">
+                    @TempData["LoginMessage"]
+                </h3>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

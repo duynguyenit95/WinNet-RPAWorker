@@ -1,0 +1,93 @@
+﻿@{
+    ViewData["Title"] = "Cut Machine";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link href="~/css/devextreme/dx.carmine.compact.css" rel="stylesheet" />
+
+    <link href="~/font-awesome/css/all.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/cutMachine/style.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/cutMachine/font/font.css" />
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/devextreme/dx.all.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.data.js"></script>
+    <script src="~/js/devextreme/aspnet/dx.aspnet.mvc.js"></script>
+    <script src="~/js/dayjs.min.js"></script>
+
+    <title>@ViewData["Title"]</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="content-header">
+            <p><span id="title">CUT MACHINE MONITOR</span> <span id="factory"></span> - <span id="block"></span></p>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-3">
+                    <div class="box-shadow content-box default">
+                        <span id="cuttingTitle">Cutting</span> : <span id="cutting"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="box-shadow content-box stopped">
+                        <span id="idleStopTitle">Idle/Stop</span> : <span id="idleStop"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="box-shadow content-box interrupted">
+                        <span id="interruptedTitle">Interrupted</span> : <span id="interrupted"></span>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="box-shadow content-box offline">
+                        <span id="offlineTitle">Offline</span> : <span id="offline"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cutMachine-container">
+        </div>
+    </div>
+    <div class="cutMachine" id="cutMachineTemplate" style="display:none">
+        <div class="machine-info">
+            <div class="displayOrder">1</div>
+            <img src="~/cutmachine/gerbermachine.png" />
+            <div class="caption machine">Gerber-C01</div>
+        </div>
+        <div class="data">
+            <div class="value status"></div>
+            <div class="small-caption status-caption">Status</div>
+        </div>        
+        <div class="data">
+            <div class="value"><span class="oee"></span>%</div>
+            <div class="small-caption oee-caption">OEE</div>
+        </div>        
+        <div class="data">
+            <div class="value output">0</div>
+            <div class="small-caption output-caption">Output</div>
+        </div>     
+        <div class="data">
+            <div class="value"><span class="active-time">0</span></div>
+            <div class="small-caption active-time-caption">Active Minutes</div>
+        </div>
+        <div class="task">
+            <div class="caption task-caption">Task</div>
+            <div class="info"></div>
+        </div>
+    </div>
+    <script src="~/microsoft-signalr/signalr.min.js"></script>
+    <script src="~/js/utility.js" asp-append-version="true"></script>
+    <script src="~/cutMachine/report.js" asp-append-version="true"></script>
+</body>
+</html>
+
+

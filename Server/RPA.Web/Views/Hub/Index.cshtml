@@ -1,0 +1,44 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+<style>
+    .dx-toast-message {
+        white-space: pre-line;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Worker Control Room</h1>
+</div>
+<div class="my-2">
+    <div class="container-fluid">
+        <div id="grid"></div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modalConfig" tabindex="-1" role="dialog" aria-labelledby="modalConfigTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document" style="max-width: 80%;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalConfigTitle">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="formWorkerConfig"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts{
+    <script src="~/microsoft-signalr/signalr.min.js"></script>
+    <script src="~/js/utility.js" asp-append-version="true"></script>
+    <script src="~/js/controlRoom.js" asp-append-version="true"></script>
+}

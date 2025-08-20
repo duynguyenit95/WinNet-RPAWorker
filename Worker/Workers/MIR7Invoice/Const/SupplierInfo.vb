@@ -164,6 +164,69 @@ Public Class SupplierInfo
                     .ProcessingType = MIR7InvoiceProcessingType.PO,
                     .ProcessingTypeBackup = MIR7InvoiceProcessingType.DeliveryNote
             }
+            Case 23
+                Return New Supplier() With {
+                    .ID = 23,
+                    .SAPID = "0000500255",
+                    .Name = "NEXGEN PACKAGING LTD",
+                    .ProcessingType = MIR7InvoiceProcessingType.PO
+            }
+            Case 24
+                Return New Supplier() With {
+                    .ID = 24,
+                    .SAPID = "0000500441",
+                    .Name = "YKK HONG KONG LTD",
+                    .ProcessingType = MIR7InvoiceProcessingType.PO
+            }
+            Case 25
+                Return New Supplier() With {
+                    .ID = 25,
+                    .SAPID = "0000501309",
+                    .Name = "HONG KONG NICER TRADING CO LIMITED",
+                    .ProcessingType = MIR7InvoiceProcessingType.DeliveryNote
+            }
+            Case 26
+                Return New Supplier() With {
+                    .ID = 26,
+                    .SAPID = "0000501291",
+                    .Name = "Coats Hong Kong Ltd",
+                    .ProcessingType = MIR7InvoiceProcessingType.DeliveryNote
+            }
+            Case 27
+                Return New Supplier() With {
+                    .ID = 27,
+                    .SAPID = "0000500020",
+                    .Name = "AVERY DENNISON HONG KONG BV",
+                    .ProcessingType = MIR7InvoiceProcessingType.DeliveryNote
+            }
+            Case 28
+                Return New Supplier() With {
+                    .ID = 28,
+                    .SAPID = "0000500276",
+                    .Name = "PAXAR (CHINA) LIMITED",
+                    .ProcessingType = MIR7InvoiceProcessingType.DeliveryNote
+            }
+            Case 29
+                Return New Supplier() With {
+                    .ID = 29,
+                    .SAPID = "0000500873",
+                    .Name = "Lee Hing Textile (International) Limited",
+                    .ProcessingType = MIR7InvoiceProcessingType.Invoice
+            }
+            Case 30
+                Return New Supplier() With {
+                    .ID = 30,
+                    .SAPID = "0000502758",
+                    .Name = "Quanzhou Shining Fabrics Co., Ltd",
+                    .ProcessingType = MIR7InvoiceProcessingType.Invoice
+            }
+            Case 31
+                Return New Supplier() With {
+                    .ID = 31,
+                    .SAPID = "0000500098",
+                    .Name = "E.TEXTINT CORP",
+                    .ProcessingType = MIR7InvoiceProcessingType.Invoice
+            }
             Case Else
                 Return Nothing
         End Select

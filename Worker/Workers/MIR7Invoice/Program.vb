@@ -156,11 +156,11 @@ Module Program
         Console.WriteLine("End")
     End Sub
     Public Sub TestRegex()
-        Dim shareDirPath = "\\172.19.18.69\fs01\QASRPA\QASRPA\01.Invoice - Yoyo - Howard\Test"
+        Dim shareDirPath = "\\172.19.18.78\ShareFolder\TestRegexMIR7"
         Dim localPath = "E:\TestRegexMIR7"
         Dim localDir = New DirectoryInfo(localPath)
         'Dim supplierIDs = New List(Of String)({"500119", "500449", "500341", "500295", "502054", "500283", "500158", "500587", "500380"})
-        Dim supplierIDs = New List(Of String)({"500855"})
+        Dim supplierIDs = New List(Of String)({"500255"})
         'Dim sIDs = New List(Of String)({"4"})
         For Each supplierID In supplierIDs
 
@@ -220,6 +220,8 @@ Module Program
                         Case 500364
                             invoice = helper.ReadTaiHingPlasticMetal(file.FullName)
 #End Region
+                        Case 500255
+                            invoice = helper.ReadNEXGENPACKAGINGLTD(file.FullName)
                         Case Else
                             Continue For
                     End Select

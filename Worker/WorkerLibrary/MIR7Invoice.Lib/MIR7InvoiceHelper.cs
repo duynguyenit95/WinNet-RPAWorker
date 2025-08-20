@@ -702,6 +702,41 @@ namespace MIR7Invoice.Lib
         }
         #endregion
 
+        #region 23. 500255 NEXGEN PACKAGING LTD
+        public Invoice ReadNEXGENPACKAGINGLTD(string pdfFilePath)
+        {
+            var pageDimension = GetPageDimension(PageType.A4, PageOrientation.Landscape);
+            var custPOContent = ITextSharpPDFOCR.ExtractVerticalColumnText(pdfFilePath, pageDimension, "Cust.PO.No", "Sub-total Quantity", 20, 0);
+            var PO = Regex.Matches(custPOContent, @"\d+", RegexOptions.Multiline).Cast<Match>().Select(x => x.Value).Distinct().ToList();
+
+            var invoiceTotalContent = ITextSharpPDFOCR.ExtractHorizontalColumnText(pdfFilePath, pageDimension, "Invoice Total", 2);
+            var invoiceTotalAmountMatch = Regex.Matches(invoiceTotalContent, @"(?'value'[\d,.]+)", RegexOptions.Multiline).Cast<Match>().FirstOrDefault();
+
+
+            var commerialInvoiceContent = ITextSharpPDFOCR.ExtractVerticalColumnText(pdfFilePath, pageDimension, "Commercial Invoice", "Account No", 5, 100);
+            var invoiceIDMatch = Regex.Matches(commerialInvoiceContent, @"Number(?:\n|\r\n| )?.*?(?'value'\d+)", RegexOptions.Multiline).Cast<Match>().FirstOrDefault();
+            var invoiceDateMatch = Regex.Matches(commerialInvoiceContent, @"Date(?:\n|\r\n| )?.*?(?'value'\d{4}.\d{2}.\d{2})", RegexOptions.Multiline).Cast<Match>().FirstOrDefault();
+            var invoiceCurrencyMatch = Regex.Matches(commerialInvoiceContent, @"Currency(?:\n|\r\n| )?.*?(?'value'\w+)", RegexOptions.Multiline).Cast<Match>().FirstOrDefault();
+
+
+
+            var InvoiceNo = invoiceIDMatch.Success ? invoiceIDMatch.Groups["value"].Value : string.Empty;
+            var InvoiceDate = invoiceDateMatch.Success ? DateTime.TryParseExact(invoiceDateMatch.Groups["value"].Value, new[] { "yyyy.MM.dd" }, null
+                 , System.Globalization.DateTimeStyles.None, out DateTime result) ? result : DateTime.MinValue : DateTime.MinValue;
+            var TotalAmount = invoiceTotalAmountMatch.Success ? decimal.Parse(invoiceTotalAmountMatch.Groups["value"].Value) : 0;
+            var Currency = invoiceCurrencyMatch.Success ? invoiceCurrencyMatch.Groups["value"].Value : string.Empty;
+            return new Invoice()
+            {
+                TotalAmount = TotalAmount,
+                InvoiceDate = InvoiceDate,
+                InvoiceNo = InvoiceNo,
+                PO = PO,
+                Currency = Currency,
+
+            };
+        }
+        #endregion
+
         #endregion
     }
 }
